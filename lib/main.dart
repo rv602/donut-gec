@@ -38,23 +38,44 @@ class _MyHomePageState extends State<_MyHomePage> {
     ];
     return Scaffold(
         body: Center(
-            child: Container(
-                child: SfCircularChart(series: <CircularSeries>[
-      // Renders doughnut chart
-      DoughnutSeries<ChartData, String>(
-        dataSource: chartData,
-        pointColorMapper: (ChartData data, _) => data.color,
-        xValueMapper: (ChartData data, _) => data.x,
-        yValueMapper: (ChartData data, _) => data.y,
-        // cornerStyle: CornerStyle.bothCurve,
-        // radius: '50%',
-        // startAngle: 360,
-        // endAngle: 360,
-        // pointColorMapper: (ChartData data, _) => data.color,
-        // groupMode: CircularChartGroupMode.point,
-        // groupTo: 2,
-      )
-    ]))));
+            child: Stack(children: [
+      Container(
+          child: SfCircularChart(series: <CircularSeries>[
+        // Renders doughnut chart
+        DoughnutSeries<ChartData, String>(
+          dataSource: chartData,
+          pointColorMapper: (ChartData data, _) => data.color,
+          xValueMapper: (ChartData data, _) => data.x,
+          yValueMapper: (ChartData data, _) => data.y,
+          // cornerStyle: CornerStyle.bothCurve,
+          // radius: '50%',
+          // startAngle: 360,
+          // endAngle: 360,
+          // pointColorMapper: (ChartData data, _) => data.color,
+          // groupMode: CircularChartGroupMode.point,
+          // groupTo: 2,
+        )
+      ])),
+      Center(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Total expenditure',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              Text(
+                'chut',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              )
+            ],
+            // 'Total expenditure\n chut',
+            // style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+      ),
+    ])));
   }
 }
 
